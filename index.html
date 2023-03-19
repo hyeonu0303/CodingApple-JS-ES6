@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--jQuery CDN-->
+  <script
+  src="https://code.jquery.com/jquery-3.6.4.js"
+  integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+  crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //'use strict';//자바스크립트를 엄격하게 쓰게해줌
+     
+    //x = 300; <- 에러가남 var이나 let을 무조건써야함
+    /* console.log(this); //window
+
+    function 함수(){
+      console.log(this);
+
+    }
+    함수(); */
+    
+
+    //오브젝트 안에서 this를 쓰면 그 함수를 가지고 있는 오브젝트를 뜻함
+    let 오브젝트 = {
+      data : {
+        함수: function(){
+          console.log(this)
+        }
+      }
+    } 
+    
+    오브젝트.data.함수();
+
+
+
+    
+    
+    
+  </script>
+</body>
+</html>
