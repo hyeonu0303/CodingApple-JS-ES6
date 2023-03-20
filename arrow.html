@@ -9,6 +9,7 @@
 <body>
   <div>
     <button id="버튼">버튼</button>
+    <button id="prButton">버튼2</button>
   </div>
   <script>
     /*
@@ -43,6 +44,53 @@
       }
     }
     오브젝트.함수();
+
+    //연습문제
+    //1.간단한 메소드만들기
+    let 사람 = {
+      name: '손흥민',
+      sayHi: function(){
+        console.log('안녕 나는' + this.name);
+      }
+    }
+    사람.sayHi();
+
+    //2.오브젝트 내의 데이터를 전부 더해주는 메소드만들기
+    let 자료 = {
+      data: [1,2,3,4,5],
+    }
+    //? forEach로는 어떻게표현해주지?
+    
+    /* 내가 짠 코드 
+    sum = 0;
+    for(let i=0; i<자료.data.length; i++){
+      sum += 자료.data[i];
+    }
+    console.log(sum); */
+    
+    자료.allSum = function(){
+      let sum = 0;
+      this.data.forEach(function(a){
+        sum += a;
+      })
+      console.log(sum);
+    }
+    자료.allSum();
+
+
+
+    //3.setTimeout 이용해보기
+    //setTimeout(콜백함수,ms단위의 시간)
+    
+    
+      document.querySelector('#prButton').addEventListener('click',function(){
+        setTimeout(()=>{console.log(this.innerHTML)}, 1000)});
+    
+    
+    
+    
+    
+
   </script>
 </body>
 </html>
