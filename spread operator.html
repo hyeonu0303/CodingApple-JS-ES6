@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    spread operator
+    사용할때
+    1. 뭔가 내용물을 빼고 싶을때 쓰면됨 -> 배열,객체에 붙이면 대괄호,중괄호를 제거해줌
+    2. deep copy할때 유용함
+    3. 함수 파라미터 넣을때
+    
+    쓸곳
+    1. 어레이 합치기/복사
+    2. 오브젝트 합치기
+
+    유의할점
+    1.값 중복이 일어나면 가장뒤에있는걸 적용
+    2.대 중 소 괄호 안에서만 사용해야함
+    */
+    var 어레이 = ['hello', 'world'];
+    console.log(...어레이);
+
+    var 문자 = 'hello';
+    console.log(...문자);
+
+    //배열합치기
+    /* var a =[1,2,3];
+    var b = [4, 5];
+    var c = [...a, ...b];
+    console.log(c); */
+
+    var a =[1,2,3];
+    var b = [...a]; //그냥 등호로 복사하면 값을 공유함-> 독립적인값을 가지도록 배열,객체 복사하려면 오퍼레이터를 이용
+    a[3] = 4;
+  
+    console.log(a);
+    console.log(b);
+
+    /* var o1 = {a:1, b:2};
+    var o2 = {...o1, c:3}; */
+    //deepcopy
+    var o1 = {a:1, b:2};
+    var o2 = {...o1};
+
+    console.log(o2);
+
+    //값 중복되면 a:1보다 a:2가뒤니까 a:2나옴
+    var o3 = {a:1, b:2};
+    var o4 = {...o1, a:2};
+
+    console.log(o4);
+
+    //3번
+
+    function 더하기(a,b,c){
+      console.log(a+b+c);
+    }
+    var array = [10,20,30];
+    더하기(...array);
+
+    더하기.apply(undefined, array); //옛날에는 이런식으로 코딩함
+
+    
+    /*
+    apply or call
+    */
+    var person = {
+      인사 : function(){
+        console.log(this.name + '안녕');
+      }
+    }
+    person.인사();
+
+    var person2 = {
+      name: '손흥민', //person2에도 인사를 적용하고싶으나 수정이불가하거나 그러면 문제가 발생 그래서 apply메소드가나옴
+
+    }
+    //apply: 함수 옮겨와서 실행함  array형식으로 집어넣기가능
+    person.인사.apply(person2, [1,2]);
+    //apply와 비슷 
+    person.인사.call(person2, 1,2);
+  </script>
+</body>
+</html>
