@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    ☆ primitive data type
+      변수에 값이 그대로 저장됨
+    
+    -array,Object는 변수에 값이저장되지않는다-> reference(저쪽에있어요(화살표))가 저장됨
+    -obj같은경우도 name:kim이 저쪽에있습니다라는 화살표가 들어가있음
+    */
+    /* var 변수 = 'dddd'
+    var array = [1,2,3];
+    var obj = {name:'kim'} */
+
+    // primitive data type 다루기
+    // 1.복사
+    /* 
+    var 이름1 = '김';
+    var 이름2 = 이름1;
+    이름1 = '박'; 
+    */
+    
+    //reference data type
+    //예시1
+    var 이름1 = {name:'kim'};
+    var 이름2 = 이름1; //화살표를 복사
+    
+    //바꾼게 없는데 '박'으로 바껴있음 -> pc메모리어딘가에 자료있어요라고 생각하면됨 이름1에 값이 저장된게아님
+    //즉, 함부로 복사하면 클남
+    //예시2
+    var 이름3 = {name:'park'};
+    var 이름4 = {name:'park'};
+    console.log(이름3==이름4);
+    //서로 같은 화살표가아니라 다른화살표이다.
+
+    //object변경해주는 함수
+
+    function 변경(obj){
+      // obj.name = 'Park';
+      obj = {name : 'park'};
+      //강제로 재할당했는데 안바뀜 -> 레퍼런스와 파라미터의 합작임
+      //파라미터 -> 변수생성, 할당과 똑같음
+    }
+    
+    //파라미터자리에 Object를 넣으면 var obj  = 이름1을 넣는것과 똑같음
+    변경(이름1);
+    
+  </script>
+</body>
+</html>

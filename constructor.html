@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    constructor <- 생성자
+    용도
+    1.object를 마구 복사하고 싶을때 사용
+    2. 비슷한 object 여러개 만들때
+    */
+
+    // var 사람 = { name : 'kim', age:15}
+    //constructor
+    function Student(이름){
+      this.name = 이름;
+      this.age = 15; //this: 인스턴스-> 새로생성되는 오브젝트
+      this.sayHi = function(){
+        console.log('안녕하세요' + this.name + '입니다');
+      } 
+    }
+    /*
+    prototype은 유전자
+    기계를 만들면 prototype이란 공간이 생김
+    원리-> 자바스크립트 코드가 원래그렇게 실행함
+    */
+    Student.prototype.gender = '남';
+
+
+    //이렇게한것을 -> 상속이라고함
+    var 학생1 = new Student();//이러면 obj뽑힘 
+    var 학생2 = new Student();
+    //여기서 문제가 이름도 똑같고 나이도 똑같이나옴 
+    학생1.toString();
+
+    var arr = [1,2,3];
+    var arr = new Array(1,2,3); //같은거임
+    //arr.sort()이런것들을 쓸수있는건
+    //arr에 sort()가있는가? 1차적으로물어보고 -> Array에 2차적으로 물어본다
+    //Array.prototype을 입력해보면 Array에 sort()가 있어서 사용할수있게된다
+
+    var obj = {name : 'kim'};
+    var obj = new Object();
+    //문제
+    function Product(상품명, 가격){
+      this.name = 상품명;
+      this.price = 가격;
+      this.부가세 = function(){
+        console.log(this.price * 0.1);
+      }
+    }
+
+    var product1 = new Product('셔츠',50000);
+    product1.부가세();
+    
+
+  
+  </script>
+</body>
+</html>
